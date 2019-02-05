@@ -1,0 +1,125 @@
+& {
+  position: relative;
+  display: inline-block;
+  width: $sldr-width;
+  height: $sldr-height;
+
+  // Reset style
+  .font-size-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-appearance: none;
+    width: $sldr-width;
+    height: $sldr-height;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+    &::-ms-track {
+      width: $sldr-width;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    &:focus {
+      outline: none;
+    }
+    &::-moz-focus-outer {
+      border: 0;
+    }
+  }
+
+  // Webkit browsers
+  .font-size-slider {
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: $sldr-cursor-border;
+      height: $sldr-cursor-size;
+      width: $sldr-cursor-size;
+      border-radius: 50%;
+      background: $sldr-cursor-color;
+      cursor: pointer;
+      margin-top: ($sldr-bar-height - $sldr-cursor-size) / 2;
+      box-shadow: $sldr-cursor-shadow;
+    }
+    &::-webkit-slider-runnable-track {
+      width: $sldr-width;
+      height: $sldr-bar-height;
+      cursor: pointer;
+      background: $sldr-bar-color;
+      border-radius: $sldr-border-radius;
+      border: $sldr-bar-border;
+    }
+  }
+
+  // Firefox
+  .font-size-slider {
+    &::-moz-range-thumb {
+      border: $sldr-cursor-border;
+      height: $sldr-cursor-size;
+      width: $sldr-cursor-size;
+      border-radius: 50%;
+      background: $sldr-cursor-color;
+      box-shadow: $sldr-cursor-shadow;
+      cursor: pointer;
+    }
+
+    &::-moz-range-track {
+      box-sizing: border-box;
+      width: $sldr-width;
+      height: $sldr-bar-height;
+      cursor: pointer;
+      background: $sldr-bar-color;
+      border-radius: $sldr-border-radius;
+      border: $sldr-bar-border;
+    }
+  }
+
+  // Internet Explorer
+  .font-size-slider {
+    &::-ms-thumb {
+      box-shadow: $sldr-cursor-shadow;
+      height: $sldr-cursor-size;
+      width: $sldr-cursor-size;
+      border-radius: 50%;
+      background: $sldr-cursor-color;
+      cursor: pointer;
+      margin-top: 2px;
+      box-sizing: border-box;
+      border: $sldr-cursor-border;
+    }
+    &:focus::-ms-thumb {
+      border: 0;
+    }
+    &::-ms-track {
+      width: $sldr-width;
+      height: $sldr-bar-height;
+      cursor: pointer;
+      background: $sldr-bar-color;
+      border-radius: $sldr-border-radius;
+      border: $sldr-bar-border;
+      color: transparent;
+      box-sizing: border-box;
+    }
+
+    &::-ms-fill-lower {
+      background: $sldr-bar-color;
+      border-radius: $sldr-border-radius;
+      border: $sldr-bar-border;
+    }
+
+    &::-ms-fill-upper {
+      background: $sldr-bar-color;
+    }
+
+    &::-ms-tooltip {
+      display: none;
+    }
+  }
+}

@@ -1,6 +1,9 @@
-<html>
+<html lang="en">
 <head>
-<title>Practical Contrast</title>
+    <title>Practical Contrast</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
 <header>
@@ -13,19 +16,54 @@
 
         </p>
         <ul>
-
+            <li>For professional use</li>
         </ul>
-        <h2>Cases against the WAI</h2>
+        <h2>Case against the WAI</h2>
         <p>
 
         </p>
     </section>
     <section class="checker">
-        <
+        <div class="color-input">
+            <h2>
+                Enter color codes
+            </h2>
+            <div class="color-pair input">
+                <label class="color-pair-1">
+                    <span class="color-chip"></span>
+                    <span class="sr-only">First color</span>
+                    <input type="text" id="c1" onkeydown="">
+                </label>
+                <label class="color-pair-2">
+                    <span class="color-chip"></span>
+                    <span class="sr-only">Second color</span>
+                    <input type="text" id="c2" onkeydown="">
+                </label>
+                <div class="slider">
+                    <label for="range-slider-input" class="sr-only">Set text size</label>
+                    <input class="font-size-slider" value="16" min="8" max="42" id="range-slider-input" name="Set text size" type="range" oninput="changeRange()" />
+                </div>
+            </div>
+            <div class="output">
+                <h2 class="sr-only">
+                    Results
+                </h2>
+            </div>
+        </div>
+        <div class="history">
+            <h2>
+                Saved pairs
+            </h2>
+            <ol>
+                <li>
+
+                </li>
+            </ol>
+        </div>
     </section>
 </main>
 <footer>
-    Stan1ey's UX Tools
+    <!--Stan1ey's UX Tools-->
 </footer>
 </body>
 </html>

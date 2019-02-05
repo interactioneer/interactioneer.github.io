@@ -1,0 +1,120 @@
+html, body, input, textarea, button {
+  font-family: sans-serif;
+  font-size: inherit;
+}
+HTML, BODY {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  * { box-sizing: border-box }
+}
+
+.sr-only {
+  position: absolute !important;
+  left: -999vw;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+//-----------//
+// FUNCTIONS //
+//-----------//
+
+$base-unit: 8;
+$base-pixel: 16;
+$content-width: 800px;
+$screen-tablet: 960px;
+$screen-phone: 640px;
+$grid-columns: 8;
+$grid-gutter: 16px;
+
+@function strip-unit($n) {
+  @if type-of($n) == 'number' and not unitless($n) {
+    @return $n / ($n * 0 + 1);  }
+  @return $n;  }
+@function size($n) {
+  @if $n == 'xxs' { @return 0.125rem; }
+  @if $n == 'xs' { @return 0.25rem; }
+  @if $n == 's' { @return 0.5rem; }
+  @if $n == 'm' { @return 1rem; }
+  @if $n == 'l' { @return 2rem; }
+  @if $n == 'xl' { @return 4rem; }
+  @if $n == 'xxl' { @return 8rem; }
+  @if unitless($n) {
+    @return  #{($n*$base-unit)/$base-pixel}rem;
+  } @else if unit($n) == 'px' {
+    @return  #{strip-unit($n)/$base-pixel}rem;
+  } @else {
+    @return $n;  } }
+@function lineHeight($n,$m) {
+  @return #{strip-unit($n)/strip-unit($m)};  }
+@function spacing($t) {
+  @if type-of($t) == 'number' {
+    @return size($t * 8px);
+  } @else {
+    $t: to-upper-case($t);
+    @return 0;
+  }
+}
+
+@function gridWidth($n) {
+  $gw: #{(strip-unit($content-width) - ($grid-gutter * ($grid-columns + 1)))/$grid-columns};
+  @if $n > 0 and $n <= $grid-columns {
+    @return size($gw * $n);
+  } @else {
+    @return size($content-width);
+  }
+}
+
+// Typefaces
+%typeface-XXL {
+  font-size: size(76px);
+  line-height: lineHeight(86,76);
+  margin-top: -0.19em;
+  margin-bottom: -0.21em;
+}
+%typeface-XL {
+  font-size: size(48px);
+  line-height: lineHeight(62,48);
+  margin-top: -0.27em;
+  margin-bottom: -0.3em;
+}
+%typeface-L {
+  font-size: size(30px);
+  line-height: lineHeight(40,30);
+  margin-top: -0.275em;
+  margin-bottom: -0.325em;
+}
+%typeface-M {
+  font-size: size(24px);
+  line-height: lineHeight(32,24);
+  margin-top: -0.286em;
+  margin-bottom: -0.32em;
+}
+%typeface-S {
+  font-size: size(20px);
+  line-height: lineHeight(28,20);
+  margin-top: -0.33em;
+  margin-bottom: -0.34em;
+}
+%typeface-XS {
+  font-size: size(18px);
+  line-height: lineHeight(26,18);
+  margin-top: -0.33em;
+  margin-bottom: -0.39em;
+}
+%typeface-XXS {
+  font-size: size(16px);
+  line-height: lineHeight(24,16);
+  margin-top: -0.368em;
+  margin-bottom: -0.42em;
+}
+%typeface-XXXS {
+  font-size: size(14px);
+  line-height: lineHeight(22,14);
+  margin-top: -0.4em;
+  margin-bottom: -0.44em;
+}

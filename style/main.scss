@@ -1,0 +1,74 @@
+@import 'fundamentals';
+
+header {
+  padding: size(m);
+  h1 {
+    @extend %typeface-XL;
+    font-weight: 300;
+  }
+}
+main {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  section {
+    padding: size(m);
+    &.checker {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+    h2 {
+      @extend %typeface-M;
+      font-weight: 500;
+    }
+  }
+
+  .color-pair {
+    label {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: stretch;
+
+      .color-chip {
+        display: inline-block;
+        width: size(l);
+        height: size(l);
+        background: red;
+        border: 2px solid blue;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        @extend %typeface-S;
+        margin: 0;
+        line-height: 1;
+        padding: size(s) size(m) size(s) size(xs);
+        height: size(l);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.color-input {
+
+  .slider {
+    $sldr-width: 300px;
+    $sldr-height: 44px;
+    $sldr-bar-height: 44px;
+    $sldr-border-radius: 44px;
+    $sldr-bar-color: orange;
+    $sldr-bar-border: 1px solid red;
+    $sldr-cursor-size: 34px;
+    $sldr-cursor-color: #fff;
+    $sldr-cursor-border: 1px solid black;
+    $sldr-cursor-shadow: 0 0 4px 0 rgba(0,0,0,0.7);
+    @import 'slider';
+  }
+
+
+}
