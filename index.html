@@ -4,13 +4,31 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style/main.css">
+    <script src="script/default.js"></script>
 </head>
 <body>
 <header>
+    <section role="presentation" class="content-frame">
     <h1>Practical Contrast</h1>
+    <nav>
+        <ul role="list">
+            <li role="listitem">
+                <a href="./" aria-selected="true">
+                    Pairs
+                </a>
+            </li>
+            <li role="listitem">
+                <a href="./palettes.html" aria-selected="false">
+                    Palettes
+                </a>
+            </li>
+        </ul>
+    </nav>
+    </section>
 </header>
 <main>
-    <section class="blog">
+<section role="presentation" class="content-frame">
+<section class="blog">
         <h2>What's this about?</h2>
         <p>
 
@@ -23,44 +41,59 @@
 
         </p>
     </section>
-    <section class="checker">
-        <div class="color-input">
-            <h2>
-                Enter color codes
-            </h2>
-            <div class="color-pair input">
-                <label class="color-pair-1">
-                    <span class="color-chip"></span>
-                    <span class="sr-only">First color</span>
-                    <input type="text" id="c1" onkeydown="">
-                </label>
-                <label class="color-pair-2">
-                    <span class="color-chip"></span>
-                    <span class="sr-only">Second color</span>
-                    <input type="text" id="c2" onkeydown="">
-                </label>
-                <div class="slider">
-                    <label for="range-slider-input" class="sr-only">Set text size</label>
-                    <input class="font-size-slider" value="16" min="8" max="42" id="range-slider-input" name="Set text size" type="range" oninput="changeRange()" />
-                </div>
-            </div>
-            <div class="output">
-                <h2 class="sr-only">
-                    Results
-                </h2>
+<div id="panel-pairs" class="pair-checker">
+    <div class="input">
+        <h2>
+            Enter color codes
+        </h2>
+        <div class="color-pair input">
+            <label class="color-pair-1">
+                <span class="color-chip"></span>
+                <span class="sr-only">First color</span>
+                <input type="text" id="c1" onkeydown="">
+            </label>
+            <label class="color-pair-2">
+                <span class="color-chip"></span>
+                <span class="sr-only">Second color</span>
+                <input type="text" id="c2" onkeydown="">
+            </label>
+            <div class="slider">
+                <label for="range-slider-input" class="sr-only">Set text size</label>
+                <input class="font-size-slider" value="16" min="8" max="48" id="range-slider-input" name="Set text size" type="range" oninput="UI.setFontsize(this.value)" />
             </div>
         </div>
-        <div class="history">
-            <h2>
-                Saved pairs
+        <div class="output">
+            <h2 class="sr-only">
+                Results
             </h2>
-            <ol>
-                <li>
+            <div class="result">
+                <p id="result-error" aria-live="polite">
+                    <span>Enter both color codes.</span>
+                </p>
+                <p id="result-sizes">
+                    <span>16px</span>
+                    <strong>1rem</strong>
+                    <span>12 points</span>
+                </p>
+                <p id="result-pass-fail">
+                    <span>FAIL in normal</span>
+                    <strong>PASS in bold</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="history">
+        <h2>
+            Saved pairs
+        </h2>
+        <ol>
+            <li>
 
-                </li>
-            </ol>
-        </div>
-    </section>
+            </li>
+        </ol>
+    </div>
+</div>
+</section>
 </main>
 <footer>
     <!--Stan1ey's UX Tools-->

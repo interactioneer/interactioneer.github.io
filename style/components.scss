@@ -1,0 +1,9 @@
+@import 'fundamentals';
+
+input[type="text"] {
+  @extend %typeface-S;
+  margin: 0;
+  line-height: 1;
+  padding: size(s) size(m) size(s) size(xs);
+  font-weight: 500;
+}
